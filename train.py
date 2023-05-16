@@ -1,17 +1,15 @@
 import torch
 from torch.optim import *
 from argparse import ArgumentParser
-import dataset
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
 from torch.utils.data import DataLoader
 import numpy as np 
 
-from models.resnet_model import *
-from mp_dataloader import DataLoader_multi_worker_FIX
-from torch.utils.data import DataLoader
+import dataset
 import trainer
 import models
+
 def main(args,k):
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     
