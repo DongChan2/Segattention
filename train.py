@@ -18,8 +18,8 @@ def main(args,k):
     hparam ={'EPOCH':args.epoch,'BATCH_SIZE':args.batch_size,'lr':args.lr,'weight_decay':args.weight_decay,"K":k,"backbone":args.backbone,'DS':args.dataset}
     
     
-    root_path = "C:\\Users\\dongchan\\VScodeProjects\\GenderRecognition\\Dataset"
-    seg_ckpt_path=f".\\models\\unet_weights\\{args.dataset}\\{k}\\weight.pth.tar"
+    root_path = args.path
+    seg_ckpt_path=args.seg_path
 
     seg_ckpt = torch.load(seg_ckpt_path)['MODEL']
     transform = {'origin': 
@@ -77,6 +77,8 @@ def main(args,k):
 
 if __name__ =='__main__':
     parser = ArgumentParser()
+    parser.add_argument("--path",type = str)
+    parser.add_argument("--seg_path",type = str)
     parser.add_argument("--batch_size", default=16,type = int)
     parser.add_argument("--epoch", default=100,type = int)
     parser.add_argument("--lr", default=1e-4,type = float)
