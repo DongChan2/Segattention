@@ -10,8 +10,7 @@ model_urls = {
     'resnet101': 'https://download.pytorch.org/models/resnet101-5d3b4d8f.pth',
     'resnet152': 'https://download.pytorch.org/models/resnet152-b121ed2d.pth',
 }
-seg_ckpt ={'UNet': "D:/dongchan/Backup/data/seg_models04_26/ver_3/lr = 0.0001, batch_size=8,weight_decay=0.0001/Epoch_28.pth.tar"}
-seg_state_dict = torch.load(seg_ckpt['UNet'])['MODEL']
+
 class Classification_model(nn.Module):
     def __init__(self,name='resnet101'):
         super().__init__()
